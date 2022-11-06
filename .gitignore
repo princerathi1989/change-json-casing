@@ -1,0 +1,10 @@
+# package directories
+node_modules
+dist
+
+# Code coverage reports
+coverage
+
+# esbuild directories
+.esbuild
+.vscode/settings.json
