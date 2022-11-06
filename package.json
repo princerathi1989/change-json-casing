@@ -1,14 +1,14 @@
 {
-  "name": "@princerathi1989/change-json-casing",
+  "name": "change-json-casing",
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["casing","json-casing", "change-casing", "camel", "changecase", "camelcasing"],
+  "author": "Prince Chaudhary <[princerathi1989@gmail.com](mailto:princerathi1989@gmail.com)>",
+  "license": "GNU GPL V3",
   "devDependencies": {
     "@types/node": "^18.11.9"
   }
