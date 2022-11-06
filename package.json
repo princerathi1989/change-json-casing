@@ -1,12 +1,19 @@
 {
   "name": "change-json-casing",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["casing","json-casing", "change-casing", "camel", "changecase", "camelcasing"],
+  "keywords": [
+    "casing",
+    "json-casing",
+    "change-casing",
+    "camel",
+    "changecase",
+    "camelcasing"
+  ],
   "author": "Prince Chaudhary <[princerathi1989@gmail.com](mailto:princerathi1989@gmail.com)>",
   "license": "GNU GPL V3",
   "devDependencies": {
