@@ -13,8 +13,6 @@ function toCamelCase(data) {
   return casing.convert();
 }
 
-
-
 class Json {
   data;
 
@@ -28,16 +26,48 @@ class Json {
 
   convert() {
     if (Array.isArray(this.getData())) {
-      const result = this.getData().reduce((next, item) => {
-        return [...next, this.changeCase(item)];
-      }, []);
-      return result;
-    };
-    return this.changeCase(this.getData());
+      return this.convertArray(this.getData());
+    }
+    return this.changeCase(data);
+  }
+
+  convertArray(data) {
+    const result = data.reduce((next, item) => {
+      return [...next, this.changeCase(item)];
+    }, []);
+    return result;
   }
 
   changeCase(data) {
-    return data;
+    const result = Object.entries(data).reduce((next, [key, value]) => {
+      let nestedObject = this.getConvertedNestedObject(value);
+      const propertyName = this.getPropertyName(key);
+      return {
+        ...next,
+        [propertyName]: nestedObject || value
+      };
+    }, {});
+    return result;
+  }
+
+  getConvertedNestedObject(value) {
+    if (typeof value === 'object') {
+      return this.changeCase(value);
+    }
+    if (Array.isArray(value)) {
+      return this.convertArray(value);
+    }
+    return null;
+  }
+
+  getPropertyName(key) {
+    return key;
+  }
+}
+
+class CamelCase extends Json {
+  constructor(data) {
+    super(data);
   }
 
   getPropertyName(key) {
@@ -45,22 +75,7 @@ class Json {
     if (key.length > 2) {
       propertyName = key[0].toLowerCase() + key.slice(1);
     }
-    return propertyName
-  }
-}
-
-class CamelCase extends Json {
-
-  constructor(data) {
-    super(data);
-  }
-
-  changeCase(data) {
-    const result = Object.entries(data).reduce((next, [key, value]) => {
-      const propertyName = this.getPropertyName(key);
-      return { ...next, [propertyName]: value };
-    }, {});
-    return result;
+    return propertyName;
   }
 }
 
@@ -69,12 +84,8 @@ class LowerCase extends Json {
     super(data);
   }
 
-  changeCase(data) {
-    const result = Object.entries(data).reduce((next, [key, value]) => {
-      const propertyName = key.toLowerCase();
-      return { ...next, [propertyName]: value };
-    }, {});
-    return result;
+  getPropertyName(key) {
+    return key.toLowerCase();
   }
 }
 
@@ -83,15 +94,10 @@ class UpperCase extends Json {
     super(data);
   }
 
-  changeCase(data) {
-    const result = Object.entries(data).reduce((next, [key, value]) => {
-      const propertyName = key.toUpperCase();
-      return { ...next, [propertyName]: value };
-    }, {});
-    return result;
+  getPropertyName(key) {
+    return key.toUpperCase();
   }
 }
-
 
 module.exports.toCamelCase = toCamelCase;
 module.exports.toLowerCase = toLowerCase;
