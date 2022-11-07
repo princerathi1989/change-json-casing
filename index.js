@@ -9,12 +9,13 @@ class Json {
     if (Array.isArray(this.getData())) {
       return this.convertArray(this.getData());
     }
-    return this.changeCase(data);
+    return this.changeCase(this.getData());
   }
   convertArray(data) {
     const result = data.reduce((next, item) => {
       return [...next, this.changeCase(item)];
     }, []);
+
     return result;
   }
   changeCase(data) {
@@ -26,8 +27,8 @@ class Json {
     return result;
   }
   getConvertedNestedObject(value) {
-    if (typeof value === 'object') { return this.changeCase(value); }
     if (Array.isArray(value)) { return this.convertArray(value); }
+    if (typeof value === 'object') { return this.changeCase(value); }
     return null;
   }
   getPropertyName(key) { return key; }
