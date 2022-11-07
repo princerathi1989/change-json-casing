@@ -15,8 +15,5 @@
     "camelcasing"
   ],
   "author": "Prince Chaudhary <[princerathi1989@gmail.com](mailto:princerathi1989@gmail.com)>",
-  "license": "GNU GPL V3",
-  "devDependencies": {
-    "@types/node": "^18.11.9"
-  }
+  "license": "GNU GPL V3"
 }
