@@ -16,6 +16,8 @@ npm install change-json-casing
 
 > Pass the complete array or object as a parameter to the desired function
 ```js
+import { toCamelCase } from 'change-json-casing';
+
 const result = toCamelCase([{ Name: 'Test', UserId: 123  }])
 ```
 > result
