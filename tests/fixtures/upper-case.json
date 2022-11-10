@@ -1,0 +1,25 @@
+{
+  "Name": "Test",
+  "ID": "622PC",
+  "Age": 32,
+  "GamePlayed": "Tennis",
+  "Hobbies": {
+    "ExperienceInYears": 2,
+    "Level": "Hard",
+    "Name": "Dancing"
+  },
+  "FRIENDS": [
+    {
+      "NAME": "test 1",
+      "AGE": 36
+    },
+    {
+      "name": "test 2",
+      "age": 40
+    },
+    {
+      "NAME": "test 3",
+      "Age": 50
+    }
+  ]
+}
