@@ -6,3 +6,4 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 #### Added
 - Typescript in the github project
 - Test Cases using Jest
+- Github Repository URL
